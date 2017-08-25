@@ -1,7 +1,7 @@
 [![Build Status](https://travis-ci.org/opspec-pkgs/azure.functionapp.deployment.credentials.set.svg?branch=master)](https://travis-ci.org/opspec-pkgs/azure.functionapp.deployment.credentials.set)
 
 # Problem statement
-
+sets azure functionapp deployment credentials
 
 
 # Example usage
@@ -27,10 +27,13 @@ opctl run github.com/opspec-pkgs/azure.functionapp.deployment.credentials.set#VE
 op:
   pkg: { ref: github.com/opspec-pkgs/azure.functionapp.deployment.credentials.set#VERSION }
   inputs:
-    connectionString:
-    secondsValid:
-  outputs:
-    sasToken:
+    loginId:
+    loginSecret:
+    loginTenantId:
+    loginType:
+    subscriptionId:
+    usernameCredential:
+    passwordCredential:
 ```
 
 # Support
