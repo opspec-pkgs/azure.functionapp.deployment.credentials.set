@@ -1,0 +1,49 @@
+name: github.com/opspec-pkgs/azure.functionapp.deployment.credentials.set
+description: sets azure functionapp deployment credentials
+version: 1.0.0
+inputs:
+  loginId:
+    string:
+      constraints: { minLength: 1 }
+      description: id of user, service principal, or app to login with
+  loginSecret:
+    string:
+      constraints: { minLength: 1 }
+      description: secret of user, service principal, or app to login with
+      isSecret: true
+  loginTenantId:
+    string:
+      constraints: { minLength: 1 }
+      description: tenant id of user, service principal, or app to login with
+      default: ' '
+  loginType:
+    string:
+      constraints: { enum: [user, sp]}
+      description: type of login; 'user' (default) or 'sp' for service principal
+      default: user
+  subscriptionId:
+    string:
+      constraints: { minLength: 1 }
+      description: id of azure subscription
+  usernameCredential:
+    string:
+      constraints: { minLength: 1 }
+      description: Username for the deployment user
+  passwordCredential:
+    string:
+      constraints: { minLength: 1 }
+      description: Password for the deployment user
+      isSecret: true
+run:
+  container:
+    image: { ref: 'azuresdk/azure-cli-python:2.0.14' }
+    cmd: [ /cmd.sh ]
+    envVars:
+      loginId:
+      loginTenantId:
+      loginType:
+      loginSecret:
+      subscriptionId:
+      usernameCredential:
+      passwordCredential:
+    files: { /cmd.sh }
