@@ -33,7 +33,7 @@ inputs:
       constraints: { minLength: 1 }
       description: Password for the deployment user
       isSecret: true
-version: 1.0.0
+version: 1.1.0
 run:
   container:
     image: { ref: 'azuresdk/azure-cli-python:2.0.14' }
